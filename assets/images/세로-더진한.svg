@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_1" data-name="레이어_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 110 500">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #e84d49;
+      }
+
+      .st1 {
+        font-family: AdobeMyungjoStd-Medium-KSCpc-EUC-H, 'Adobe Myungjo Std';
+        font-size: 12px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <g id="_레이어_11" data-name="_레이어_1">
+    <circle cx="2651.9" cy="1337.8" r="2.2"/>
+  </g>
+  <g id="_레이어_2">
+    <circle class="st0" cx="52.8" cy="3.2" r="25.1"/>
+    <circle class="st0" cx="62" cy="52.4" r="25.1"/>
+    <circle class="st0" cx="52.8" cy="101.2" r="25.1"/>
+    <circle class="st0" cx="62" cy="150.4" r="25.1"/>
+    <circle class="st0" cx="52.8" cy="199.6" r="25.1"/>
+    <circle class="st0" cx="62" cy="248.7" r="25.1"/>
+    <circle class="st0" cx="52.8" cy="297.8" r="25.1" transform="translate(-148.7 72.2) rotate(-31.7)"/>
+    <circle class="st0" cx="62" cy="347.1" r="25.1"/>
+    <circle class="st0" cx="52.8" cy="395.8" r="25.1" transform="translate(-264.4 153.2) rotate(-45)"/>
+    <circle class="st0" cx="62" cy="444.7" r="25.1"/>
+    <circle class="st0" cx="52.8" cy="493.8" r="25.1" transform="translate(-333.7 181.9) rotate(-45)"/>
+    <circle class="st0" cx="52.8" cy="591.8" r="25.1" transform="translate(-403 210.6) rotate(-45)"/>
+    <circle class="st0" cx="62" cy="542.8" r="25.1"/>
+    <rect class="st0" x="-297.8" y="263.5" width="636.7" height="70.8" transform="translate(319.5 278.3) rotate(90)"/>
+  </g>
+  <text class="st1" transform="translate(1523.3 1388.7)"><tspan x="0" y="0">Lorem ipsum</tspan></text>
+</svg>
