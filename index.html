@@ -277,10 +277,14 @@
 				<div class="img-box">
 					<img class="img-default about-img" src="assets/images/myc.png" alt="은희 캐릭터">
 					<img class="img-hover about-img" src="assets/images/myc2.png" alt="은희 캐릭터 윙크">
-					<!-- <div class="hover-img-meet">
+					<div class="hover-img-meet">
 						<img src="assets/images/meetyou.svg" alt="">
-					</div> -->
+					</div>
 				</div>
+				<p class="hover-me-p" >⇧ Try hovering</p>
+				<div class="hover-me">
+						<img src="assets/images/손.png" alt="">
+					</div>
 			<!--리스트 -->
 			<div class="spec-list">
 				<div class="spec-item">
@@ -398,7 +402,7 @@
 				<div class="experience-img"><img src="assets/images/배경이미지위.svg" alt="" aria-hidden="true"></div>
 				<div class="experience-main">
 					<h2 class="section-h2">Work Experience</h2>
-					<img class="experience-background-img" src="assets/images/godtjd.png" alt="배경 사진" aria-hidden="true">
+					<img class="experience-background-img" src="assets/images/godtjd.png" alt="행성 사진" aria-hidden="true">
 				</div>
 				<div class="experience-img experience-img-bottom"><img src="assets/images/배경이미지.svg" alt="" aria-hidden="true"></div>
 			</section>
@@ -414,7 +418,7 @@
 						<p class="project-title" id="e-commerce">
 							<span class="project-name">E-Commerce</span>
 						</p>
-						<span class="project-desc">상품의 매력을 직관적으로 전달하는 상세페이지 디자인.</span>
+						<span class="project-desc">상품의 매력을 직관적으로 전달하는<br>상세페이지 디자인</span>
 						<!-- <button class="project-btn" data-project-index="0">View</button> -->
 						 <ul class="modal-btn">
 							<li class="modal-btn-list">
@@ -446,15 +450,20 @@
 							</li>
 						 </ul>
 					</div>
-					
 				</li>
+
 				<li class="project-item observer-ready branding" data-project-index="1">
 					<div class="project-content branding-elements">
 						<p class="project-title" id="Branding">
 							<span class="project-name">Brand Design</span>
 						</p>
-						<span class="project-desc">브랜드의 방향성과 이미지를 시각적으로 구축하는 디자인</span>
+						<span class="project-desc">브랜드의 방향성과 이미지를<br>시각적으로 구축한 디자인</span>
 						<!-- <button class="project-btn" data-project-index="1">View</button> -->
+						 <img class="branding-backimg" src="assets/images/ICONS 078.png" alt="배경 꾸밈요소" aria-hidden="true">
+						 <img class="branding-backimg2" src="assets/images/ICONS 078.png" alt="배경 꾸밈요소" aria-hidden="true">
+						 <img class="branding-backimg3" src="assets/images/ICONS 078.png" alt="배경 꾸밈요소" aria-hidden="true">
+						 <img class="branding-backimg4" src="assets/images/ICONS 078.png" alt="배경 꾸밈요소" aria-hidden="true">
+						 <img class="branding-backimg5" src="assets/images/ICONS 078.png" alt="배경 꾸밈요소" aria-hidden="true">
 						 <ul class="branding-list">
 							<li class="branding-item">
 								<a class="branding-itam-btn" data-modal="modal4">
@@ -862,10 +871,261 @@ window.addEventListener('scroll', () => {
     helloItems.forEach((el, index) => {
       setTimeout(() => {
         el.classList.add('show');
-      }, index * 400); // 순서대로 딜레이
+      }, index * 600); // 순서대로 딜레이
     });
   }
 });
+// -------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+
+  // =========================
+  // 🎯 기존 코드 그대로 유지
+  // =========================
+
+  const modals = document.querySelectorAll(".modal");
+
+  let isPaused = false;
+  let isDragging = false;
+
+  const track = document.querySelector('.Marketing-list');
+
+  track.innerHTML += track.innerHTML;
+
+  let position = track.scrollWidth / 2;
+  let speed = 0.3;
+  let animationId;
+
+  function animate() {
+    cancelAnimationFrame(animationId);
+    if (!isPaused && !isDragging) {
+      position += speed;
+
+      const half = track.scrollWidth / 2;
+      if (position >= half) {
+        position -= half;
+      }
+    }
+
+    track.style.transform = `translateX(-${position}px)`;
+    animationId = requestAnimationFrame(animate);
+  }
+  animate();
+
+  let startX = 0;
+  let startPosition = 0;
+
+  track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    isPaused = true;
+    startX = e.clientX;
+    startPosition = position;
+    track.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const dx = e.clientX - startX;
+    position = startPosition - dx;
+
+    const half = track.scrollWidth / 2;
+
+    if (position >= half) {
+      position -= half;
+      startPosition = position;
+      startX = e.clientX;
+    }
+
+    if (position < 0) {
+      position += half;
+      startPosition = position;
+      startX = e.clientX;
+    }
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    isPaused = false;
+    animate();
+    track.style.cursor = 'grab';
+  });
+
+  track.addEventListener('mouseenter', () => isPaused = true);
+  track.addEventListener('mouseleave', () => {
+    if (!isDragging) isPaused = false;
+  });
+
+  track.style.cursor = 'grab';
+
+  const allButtons = document.querySelectorAll(
+    ".card, .branding-itam-btn, .marketing-item button"
+  );
+
+  allButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+      modals.forEach(m => m.style.display = "none");
+
+      let target = btn.dataset.modal;
+      if (!target.startsWith("modal")) {
+        target = "modal" + target;
+      }
+
+      const targetModal = document.getElementById(target);
+
+      if (targetModal) {
+        targetModal.style.display = "flex";
+        isPaused = true;
+        cancelAnimationFrame(animationId);
+
+        setTimeout(() => {
+          targetModal.scrollTop = 0;
+          const content = targetModal.querySelector(".modal-content");
+          if (content) content.scrollTop = 0;
+        }, 10);
+      }
+    });
+  });
+
+  modals.forEach(modal => {
+
+    const closeBtn = modal.querySelector(".modal-close");
+    const overlay = modal.querySelector(".modal-overlay");
+
+    function closeModal() {
+      modal.style.display = "none";
+      isPaused = false;
+      animate();
+    }
+
+    if (closeBtn) closeBtn.addEventListener("click", closeModal);
+    if (overlay) overlay.addEventListener("click", closeModal);
+  });
+
+  // =========================
+  // 🔥 여기부터 추가 (스크롤 효과 통합)
+  // =========================
+
+  const helloSection = document.querySelector('.hello-section');
+  const helloItems = helloSection.querySelectorAll('h2, h3, .paragraph');
+
+  const specList = document.querySelector('.spec-list');
+  const subItems = document.querySelectorAll('.img-box, .hover-me, .hover-me-p');
+
+  let helloTriggered = false;
+  let aboutTriggered = false;
+
+  window.addEventListener('scroll', () => {
+
+    // 🔹 hello section
+    const helloTop = helloSection.getBoundingClientRect().top;
+
+    if (helloTop < window.innerHeight * 0.8 && !helloTriggered) {
+      helloTriggered = true;
+
+      helloItems.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('show');
+        }, index * 600);
+      });
+    }
+
+    // 🔹 about (spec-list 메인)
+const specList = document.querySelector('.spec-list');
+const imgBox = document.querySelector('.img-box');
+const hoverText = document.querySelector('.hover-me-p');
+const hoverHand = document.querySelector('.hover-me');
+
+let aboutTriggered = false;
+
+window.addEventListener('scroll', () => {
+  const specTop = specList.getBoundingClientRect().top;
+
+  if (specTop < window.innerHeight * 0.7 && !aboutTriggered) {
+    aboutTriggered = true;
+
+     // 🔥 1️⃣ spec-list 먼저 (주인공)
+  specList.classList.add('show');
+
+  // 2️⃣ 캐릭터
+  setTimeout(() => {
+    imgBox.classList.add('show');
+  }, 600);
+
+  // 3️⃣ hover 안내
+  setTimeout(() => {
+    hoverText.classList.add('show');
+    hoverHand.classList.add('show');
+  }, 1200);
+}
+});
+
+  });
+
+});
+// ---------------------------
+const workSection = document.querySelector('.work-experience');
+
+let workTriggered = false;
+
+window.addEventListener('scroll', () => {
+  const top = workSection.getBoundingClientRect().top;
+
+  if (top < window.innerHeight * 0.25 && !workTriggered) {
+    workTriggered = true;
+    workSection.classList.add('show');
+  }
+});
+// ------------------------------------
+const projectSections = document.querySelectorAll('.project-item');
+
+projectSections.forEach(section => {
+
+  const desc = section.querySelector('.project-desc');
+
+  // 👉 여러 타입 다 잡기
+  const cards = section.querySelectorAll(
+    '.modal-btn-list, .branding-item, .marketing-item, .creative-item'
+  );
+
+  let descTriggered = false;
+  let cardsTriggered = false;
+
+  window.addEventListener('scroll', () => {
+
+    if (!desc) return; // 안전장치
+
+    const descTop = desc.getBoundingClientRect().top;
+
+    // 설명
+    if (descTop < window.innerHeight * 0.6 && !descTriggered) {
+      descTriggered = true;
+      desc.classList.add('show');
+    }
+
+    // 카드 (있을 때만 실행)
+    if (cards.length > 0) {
+      const firstTop = cards[0].getBoundingClientRect().top;
+
+      if (firstTop < window.innerHeight * 0.4 && !cardsTriggered) {
+        cardsTriggered = true;
+
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('show');
+          }, index * 400);
+        });
+      }
+    }
+
+  });
+
+});
+
+// ------------------
+
+
 </script>
 </body>
 </html>

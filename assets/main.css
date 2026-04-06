@@ -62,9 +62,9 @@
     font-weight: 900;
     font-display: swap;
 }
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 
 html {
@@ -256,6 +256,7 @@ button {
 .header {
 	position: relative;
 	z-index: 1000;
+	margin-bottom: 3vw;
 }
 .header-inner {
 	padding-top: 46px;
@@ -438,7 +439,7 @@ right: 20px;
 .about-me {
 	width: 100%;
 	height: 100vh;
-	padding: 14vh 0;
+	padding: 14vh 0 10vw 0;
 }
 .section-h2 {
 	text-align: center;
@@ -499,6 +500,9 @@ right: 20px;
 }
 
 /* 어바웃 리스트 */
+.about-me {
+	position: relative;
+}
 .about-me .spec-list {
 	width: 65vw;
 	height: 31.7vh;
@@ -512,8 +516,20 @@ right: 20px;
 	justify-content: center;
 	align-items: flex-start;
 	padding-top: 4.6vh;
+	border: 1.4px solid black;
+	position: relative;
 }
+.hover-me {
+	position: absolute;
+	left: -5vw;
+	top: 42vw;
+	z-index: 9999;
+}
+.hover-me img {
+	width: 22vw;
+	transform: rotate(-20deg);
 
+}
 .about-me .spec-list .spec-item .spec-title {
 	font-family: 'Pretendard';
 	font-size: 1.625rem;
@@ -542,13 +558,12 @@ right: 20px;
 /* 어바웃 스킬 */
 .about-me .skills-list {
 	position: relative;
-	width: 30vw;
+	width: 60vw;
 	top: 5vw;
 	left: 38%;
 }
 .skills-wrap {
-  width: 50vw;      /* 🔥 여기 줄이면 됨 */
-
+  width: 60vw;
   overflow: hidden;
 }
 .about-me .skills-list .spec-title {
@@ -561,6 +576,16 @@ right: 20px;
 .about-me .skills-list ul {
   display: flex;
   gap: 6vw;
+  width: max-content;
+  animation: scrollLoop 35s linear infinite;
+}
+@keyframes scrollLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 .about-me .skills-list ul li {
 	display: flex;
@@ -622,8 +647,41 @@ right: 20px;
   	left: 50%;
   	transform: translate(-50%, -50%);
 	text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.4);
-	
+	  opacity: 0;
+  transform: translate(-50%, -30%) scale(0.8);
+
+  transition: none;
 }
+.work-experience.show .experience-main h2 {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+
+  animation: titleImpact 1s cubic-bezier(0.22, 1.6, 0.36, 1);
+}
+@keyframes titleImpact {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -20%) scale(0.6);
+    text-shadow: none;
+  }
+
+  60% {
+    transform: translate(-50%, -55%) scale(1.1);
+    text-shadow: 
+      0 0 10px #00e143,
+      0 0 30px #00e143,
+      0 0 60px #00e143;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    text-shadow: 
+      0 0 5px #00e143,
+      0 0 15px #00e143;
+  }
+}
+
+
 .work-experience .experience-background-img {
 	width: 25vw;
 	user-select: none;
@@ -635,7 +693,41 @@ right: 20px;
 	position: absolute;
 	bottom: -1vh;
 }
+/* 효과 */
+.spec-list {
+  opacity: 0;
+  transform: translateY(120px) scale(0.85) rotateX(20deg);
+  filter: blur(10px);
+  transition: 
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1.5, 0.36, 1),
+    filter 1s ease;
+  transform-origin: top;
+}
 
+/* 등장 */
+.spec-list.show {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0);
+  filter: blur(0);
+}
+.img-box,
+.hover-me,
+.hover-me-p {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.7s ease;
+}
+
+.img-box.show,
+.hover-me.show,
+.hover-me-p.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ----------------------------------- */
 /* scroll content */
 
 .scroll-content {
@@ -666,6 +758,7 @@ right: 20px;
 	margin-top: -10vh;
 	margin-left: 3vw;
 	margin-right: 3vw;
+	position: relative;
 }
 .project-title {
 	padding: 1vw 3vw;
@@ -688,14 +781,68 @@ right: 20px;
 .project-desc {
 	width: 100%;
 	display: inline-block;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	font-family: 'Pretendard';
 	color: #222;
-	font-weight: 500;
-	margin-top: 1.1vh;
+	font-weight: 600;
+	margin-top: 15vh;
 	text-align: center;
-	padding-bottom: 8vw;
+	margin-bottom: 10vw;
+	line-height: 1.4;
 	/* margin-left: .3rem; */
+	opacity: 0;
+ 	transform: translateY(-80px);
+ 	transition: none;
+}
+.project-desc.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: dropImpact 3s cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+.branding-backimg {
+	position: absolute;
+	width: 28vw;
+	left: 0vw;
+	opacity: .1;
+	top: 20vw;
+	user-select: none;
+  	-webkit-user-drag: none;
+}
+.branding-backimg2 {
+	position: absolute;
+	width: 30vw;
+	right: 0vw;
+	opacity: .1;
+	top: 30vw;
+	user-select: none;
+  	-webkit-user-drag: none;
+}
+.branding-backimg3 {
+	position: absolute;
+	width: 30vw;
+	left: -10vw;
+	opacity: .1;
+	top: 70vw;
+	user-select: none;
+  	-webkit-user-drag: none;
+}
+.branding-backimg4 {
+	position: absolute;
+	width: 30vw;
+	right: 0;
+	opacity: .1;
+	top: 98vw;
+	user-select: none;
+  	-webkit-user-drag: none;
+}
+.branding-backimg5 {
+	position: absolute;
+	width: 30vw;
+	left: 0;
+	opacity: .1;
+	top: 140vw;
+	user-select: none;
+  	-webkit-user-drag: none;
 }
 /* 프로젝트 모달 버튼 부분 */
 .modal-btn {
@@ -713,6 +860,28 @@ right: 20px;
 .modal-btn .modal-btn-list {
 	position: relative;
 	width: auto;
+	opacity: 0;
+  /* transform: translateY(-160px); */
+    transform: translateY(-160px) scale(0.9);
+  transition: 
+    transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.6s ease;
+}
+.modal-btn-list.show {
+  opacity: 1;
+  transform: translateY(0);
+  animation: dropImpact 3s cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+@keyframes dropImpact {
+  0% {
+    transform: translateY(-120px);
+  }
+  70% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 .modal-btn .modal-btn-list a {
 	display: flex;
@@ -776,11 +945,26 @@ right: 20px;
   transition: 0.3s;
 }
 
+.hover-me-p {
+	position: absolute;
+	font-size: 1.375rem;
+	font-family: 'Pretendard';
+	font-weight: 600;
+	margin-left: 17vw;
+	margin-top: 25vw;
+	animation: softBlink 3s ease-in-out infinite;
+}
+@keyframes softBlink {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
 .card:hover .overlay span::after {
   transform: translate(4px, -4px);
 }
 /* ---------------------------------------------- */
 /* 프로젝트 2 */
+
 .branding {
 	/* background: #fff; */
 	padding-top: 5vw;
@@ -795,11 +979,12 @@ right: 20px;
   flex-direction: column;
   align-items: center;
   gap: 3vw;
-  margin-top: 6vw;
+  /* margin-top: 6vw; */
 }
 .project-content .branding-list .branding-item {
   display: flex;
   justify-content: center;
+  
 }
 .project-content .branding-list .branding-item a {
 	width: 70vw;
