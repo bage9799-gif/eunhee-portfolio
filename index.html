@@ -504,7 +504,7 @@
 									<img class="Thumbnail" src="assets/images/박스-목업.png" alt="명함 버튼 사진">
 								</a>
 							</li>
-							<li class="branding-item">
+							<!-- <li class="branding-item">
 								<a class="branding-itam-btn" data-modal="modal5">
 									<img class="branding-decoration" src="assets/images/세로-더진한.svg" alt="꾸밈요소" aria-hidden="true">
 										<div class="branding-btn-p">
@@ -517,7 +517,7 @@
 									<img class="Thumbnail" src="assets/images/박스-목업.png" alt="명함 버튼 사진">
 								</a>
 							</li>
-						
+						 -->
 						 </ul>
 					</div>
 				</li>
@@ -586,51 +586,70 @@
 						</div>
 					</div>
 				</li>
+
 				<li class="project-item observer-ready" data-project-index="5">
 					<div class="project-content">
 						<p class="project-title" id="Creative-works">
 							<span class="project-name">Creative Works</span>
 						</p>
 						<span class="project-desc">아이디어를 확장한 다양한 <br> 디지털 & 크리에이티브 작업</span>
+
+
 						<ul class="creative-list">
 							<li class="creative-item">
-								<button class="Creative-btn">
-									<span>view Project</span>
-									<img src="assets/images/헤드라인.png" alt="캐릭터디자인 썸네일">
-								</button>
-								<div class="Creative-text">
-									<p class="creative-p1">Character Design</p>
-									<p class="creative-p2">[춘천시 영상산업지원센터] 캐릭터 디자인 공모전</p>
+								<div class="creative-wrap">
+									<button class="Creative-btn">
+										<span>view Project</span>
+										<div class="img-wrap">
+											<img src="assets/images/헤드라인.png" alt="캐릭터디자인 썸네일">
+										</div>
+									</button>
+									<div class="Creative-text">
+										<p class="creative-p1">Character Design</p>
+										<p class="creative-p2">[춘천시 영상산업지원센터] 캐릭터 디자인 공모전</p>
+									</div>
 								</div>
 							</li>
 							<li class="creative-item">
+								<div class="creative-wrap">
 								<button class="Creative-btn">
 									<span>view Project</span>
-									<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
+									<div class="img-wrap">
+										<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
+									</div>
 								</button>
 								<div class="Creative-text">
 									<p class="creative-p1">Landing Page Design</p>
 									<p class="creative-p2">콜로소 7주년 랜딩페이지</p>
 								</div>
-							</li>
-							<li class="creative-item">
-								<button class="Creative-btn">
-									<span>view Project</span>
-									<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
-								</button>
-								<div class="Creative-text">
-									<p class="creative-p1">Landing Page Design</p>
-									<p class="creative-p2">콜로소 7주년 랜딩페이지</p>
 								</div>
 							</li>
 							<li class="creative-item">
+								<div class="creative-wrap">
 								<button class="Creative-btn">
 									<span>view Project</span>
-									<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
+									<div class="img-wrap">
+										<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
+									</div>
 								</button>
 								<div class="Creative-text">
-									<p class="creative-p1">Landing Page Design</p>
-									<p class="creative-p2">콜로소 7주년 랜딩페이지</p>
+									<p class="creative-p1">3D Motion Poster</p>
+									<p class="creative-p2">Blender를 활용한 3D 모션 포스터</p>
+								</div>
+								</div>
+							</li>
+							<li class="creative-item">
+								<div class="creative-wrap">
+								<button class="Creative-btn">
+									<span>view Project</span>
+									<div class="img-wrap">
+										<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
+									</div>
+								</button>
+								<div class="Creative-text">
+									<p class="creative-p1">3D Mockup</p>
+									<p class="creative-p2">Blender를 활용한 다양한 목업 및 패키지 디자인</p>
+								</div>
 								</div>
 							</li>
 						</ul>
@@ -725,7 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
   track.innerHTML += track.innerHTML;
 
   let position = track.scrollWidth / 2;
-  let speed = 0.3;
+  let speed = 0.4;
   let animationId;
 
   function animate() {
@@ -1072,7 +1091,7 @@ let workTriggered = false;
 window.addEventListener('scroll', () => {
   const top = workSection.getBoundingClientRect().top;
 
-  if (top < window.innerHeight * 0.25 && !workTriggered) {
+  if (top < window.innerHeight * 0.4 && !workTriggered) {
     workTriggered = true;
     workSection.classList.add('show');
   }
@@ -1125,6 +1144,30 @@ projectSections.forEach(section => {
 
 // ------------------
 
+// =========================
+// 🎯 Branding 리스트 순차 등장
+// =========================
+const brandingSection = document.querySelector('.branding');
+const brandingItems = document.querySelectorAll('.branding-item');
+
+let brandingTriggered = false;
+
+window.addEventListener('scroll', () => {
+  if (!brandingSection) return;
+
+  const top = brandingSection.getBoundingClientRect().top;
+
+  // 섹션이 화면에 들어오면 시작
+  if (top < window.innerHeight * 0.15 && !brandingTriggered) {
+    brandingTriggered = true;
+
+    brandingItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show');
+      }, index * 1000); // 하나씩 순차 등장
+    });
+  }
+});
 
 </script>
 </body>

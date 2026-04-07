@@ -980,11 +980,21 @@ right: 20px;
   align-items: center;
   gap: 3vw;
   /* margin-top: 6vw; */
+  margin-bottom: 8vw;
 }
 .project-content .branding-list .branding-item {
   display: flex;
   justify-content: center;
-  
+}
+.branding-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s ease;
+}
+
+.branding-item.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 .project-content .branding-list .branding-item a {
 	width: 70vw;
@@ -1070,7 +1080,7 @@ right: 20px;
 /* --------------------------------------------------- */
 /* 프로젝트3 영역 */
 .Marketing {
-	padding-top: 5vw;
+	/* padding-top: 5vw; */
 }
 .Marketing-list {
 	width: 100%;
@@ -1079,7 +1089,8 @@ right: 20px;
 	display: flex;
 	gap: 3vw;
 	align-items: center;
-	margin-top: 2vw;
+	/* margin-top: 2vw; */
+	margin-bottom: 4vw;
 }
 .track {
   width: 100%;
@@ -1118,6 +1129,98 @@ right: 20px;
 }
 
 /* ----------------------------------------------- */
+/* 프로젝트 마지막 리스트 */
+.creative-list {
+	position: relative;
+	width: 100%;
+	height: auto;
+}
+.creative-list .creative-item {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+}
+.creative-wrap {
+	position: relative;
+}
+.creative-list .creative-item .Creative-btn {
+	background: none;
+	position: relative;
+	display: inline-block;
+}
+.img-wrap {
+	position: relative;
+	border-radius: 1.5vw;
+	overflow: hidden; /* 🔥 오버레이가 모서리 맞게 */
+}
+.img-wrap img {
+	display: block;
+	width: 70vw;
+	border-radius: 1.5vw;
+}
+.Creative-text {
+	text-align: center;
+	margin-bottom: 6vw;
+}
+.Creative-text .creative-p1 {
+	font-family: "DM Serif Display", serif;
+ 	font-weight: 500;
+	font-size: 2.6vw;
+	margin-bottom: 1.2vw;
+	margin-top: 2vw;
+}
+.creative-item:hover .creative-p1 {
+	color: #E1211D;
+}
+.Creative-text .creative-p2 {
+	font-size: 18px;
+	font-family: 'Pretendard';
+}
+
+/* 흰색 오버레이 */
+.img-wrap::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.6);
+
+	opacity: 0;
+	transition: 0.4s ease;
+}
+
+
+.Creative-btn span {
+	position: absolute;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	opacity: 0;
+	z-index: 2;
+	font-size: 20px;
+	font-family: 'Pretendard';
+	font-weight: 500;
+	border: 1.3px solid #E1211D;
+	padding: .5vw 1.5vw;
+	border-radius: 50px;
+	transition: 0.4s ease;
+	color: #E1211D;
+}
+/* hover */
+.Creative-btn:hover .img-wrap::after {
+	opacity: 1;
+}
+
+.Creative-btn:hover span {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+/* ---------------------------------------- */
 
 /* 모달 전체 */
 .modal {
