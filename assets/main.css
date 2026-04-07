@@ -70,6 +70,7 @@
 html {
 	font-size: 16px;
 	color: #222;
+	scroll-behavior: smooth;
 }
 body {
 	/* overflow-x: hidden; */
@@ -77,6 +78,10 @@ body {
 	background: #FFEFF7;
 	font-family: 'Pretendard';
 	/* overflow-x: hidden; */
+}
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
 a {
 	color: #222;
@@ -627,6 +632,8 @@ right: 20px;
 
 .work-experience .experience-img {
 	width: 100%;
+	 user-select: none;
+  	-webkit-user-drag: none;
 }
 .work-experience .experience-main {
 	width: auto;
@@ -687,11 +694,15 @@ right: 20px;
 	user-select: none;
   	pointer-events: none;
 	opacity: .3;
+	 user-select: none;
+  	-webkit-user-drag: none;
 	
 }
 .work-experience .experience-img-bottom {
 	position: absolute;
 	bottom: -1vh;
+	 user-select: none;
+  	-webkit-user-drag: none;
 }
 /* 효과 */
 .spec-list {
@@ -752,7 +763,7 @@ right: 20px;
 	height: auto;
 	min-height: 100vh;
 	/* margin-top: 13vw; */
-	padding-bottom: 9vw;
+	padding-bottom: 5vw;
 }
 .project-content {
 	margin-top: -10vh;
@@ -845,6 +856,7 @@ right: 20px;
   	-webkit-user-drag: none;
 }
 /* 프로젝트 모달 버튼 부분 */
+
 .modal-btn {
 	 width: calc(100% + 6vw);
 	height: 33vw;
@@ -939,6 +951,38 @@ right: 20px;
  	 align-items: center;
  	 gap: 8px;
 }
+#modal6 img {
+	margin: 2vw auto;
+}
+#modal7 img {
+	margin-bottom: 3vw;
+	width: 30vw;
+	margin: 0 auto;
+	margin-bottom: 3vw;
+}
+#modal8 img {
+	width: 32vw;
+	margin: 2vw auto;
+}
+#modal9 img {
+	width: 32vw;
+	margin: 2vw auto;
+}
+#modal10 img {
+	width: 32vw;
+	margin: 2vw auto;
+}
+#modal11 img {
+	width: 32vw;
+	margin: 2vw auto;
+}
+#modal12 img {
+	width: 32vw;
+	margin: 2vw auto;
+}
+
+
+
 /* 화살표 움직임 */
 .overlay span::after {
   content: "↗";
@@ -1395,7 +1439,8 @@ right: 20px;
 	position: absolute;
 	opacity: .8;
 	transform: rotate(10deg);
-	top: 20vw;
+	top: 18vw;
+	/* left: 1vw; */
 	/* padding-bottom: 3vw; */
 	 user-select: none;
   -webkit-user-drag: none;
@@ -1432,7 +1477,7 @@ right: 20px;
 .contact-Sticker-5 {
 	position: absolute;
 	width: 26svw;
-	top: 16vw;
+	top: 13vw;
 	opacity: .7;
 	left: 13vw;
 	transform: rotate(-16deg);

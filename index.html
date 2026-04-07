@@ -192,6 +192,7 @@
 						</img>
   						</div>
 					</div>
+					<!-- --------캐릭터 -->
 					<div class="modal" id="modal13">
   						<div class="modal-overlay"></div>
 
@@ -199,7 +200,31 @@
     						<button class="modal-close">✕</button>
 
    					 	<!-- 상세페이지 -->
-    						<img src="assets/images/이것저것_페이지_4.jpg">
+    						<img src="assets/images/캐릭터시트PNG.png">
+						</img>
+  						</div>
+					</div>
+					<!-- ---------콜로소 랜딩 -->
+					<div class="modal" id="modal14">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/콜로소-랜딩.png">
+						</img>
+  						</div>
+					</div>
+					<!-- ----------박스------------ -->
+					<div class="modal" id="modal15">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/box-설명.png">
 						</img>
   						</div>
 					</div>
@@ -492,7 +517,7 @@
 								</a>
 							</li>
 							<li class="branding-item">
-								<a class="branding-itam-btn" data-modal="modal13">
+								<a class="branding-itam-btn" data-modal="modal15">
 									<img class="branding-decoration" src="assets/images/세로.svg" alt="꾸밈요소" aria-hidden="true">
 										<div class="branding-btn-p">
 											<p class="branding-chapter">Chapter 03</p>
@@ -598,9 +623,9 @@
 						<ul class="creative-list">
 							<li class="creative-item">
 								<div class="creative-wrap">
-									<button class="Creative-btn">
+									<button class="Creative-btn" data-modal="modal13">
 										<span>view Project</span>
-										<div class="img-wrap">
+										<div class="img-wrap" >
 											<img src="assets/images/헤드라인.png" alt="캐릭터디자인 썸네일">
 										</div>
 									</button>
@@ -612,7 +637,7 @@
 							</li>
 							<li class="creative-item">
 								<div class="creative-wrap">
-								<button class="Creative-btn">
+								<button class="Creative-btn" data-modal="modal14">
 									<span>view Project</span>
 									<div class="img-wrap">
 										<img src="assets/images/콜로소.png" alt="랜딩페이지 썸네일">
@@ -818,7 +843,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🎯 모든 모달 버튼 (통합)
   // =========================
   const allButtons = document.querySelectorAll(
-    ".card, .branding-itam-btn, .marketing-item button"
+    ".card, .branding-itam-btn, .marketing-item button, .Creative-btn"
   );
 
   allButtons.forEach(btn => {
@@ -839,6 +864,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (targetModal) {
         targetModal.style.display = "flex";
+		document.body.classList.add("no-scroll");
 
         // ⭐ 슬라이드 멈춤
         isPaused = true;
@@ -864,6 +890,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function closeModal() {
       modal.style.display = "none";
+	  document.body.classList.remove("no-scroll");
 
       // ⭐ 다시 슬라이드 시작
       isPaused = false;
@@ -995,6 +1022,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (targetModal) {
         targetModal.style.display = "flex";
+		document.body.classList.add("no-scroll");
+
         isPaused = true;
         cancelAnimationFrame(animationId);
 
