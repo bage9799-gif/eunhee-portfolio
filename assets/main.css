@@ -107,6 +107,7 @@ button {
   position: absolute;
   gap: 2.7vw;
   padding: 0 1rem;
+  z-index: 1;
 }
 .background span {
   display: block;
@@ -114,6 +115,7 @@ button {
   background: linear-gradient(180deg, #f6bcba 0%, rgba(217, 217, 217, 0) 100%, rgba(217, 217, 217, 0) 100%);
    width: calc(11.1111%);
   margin-right: 0;
+  z-index: 1;
 }
 .background span:last-child {
   margin-right: 0;
@@ -122,8 +124,8 @@ button {
 /* nav */
 
 .nav {
-  width: 43%;
-  height: 60px;
+  width: 39vw;
+  height: 3.5vw;
   position: fixed;
   z-index: 9999;
   margin-top: 10px;
@@ -133,6 +135,7 @@ button {
   border-radius: 130px;
     left: 50%;
   transform: translateX(-50%);
+  display: flex;
 
   background: rgba(255, 255, 255, 0.05); /* 거의 투명 */
   backdrop-filter: blur(9px) saturate(140%);
@@ -157,8 +160,8 @@ button {
   justify-content: center;
   align-items: center;
   color: #222;
-  gap: 100px;
-  font-size: 18px;
+  gap: 5vw;
+  font-size: 1.2vw;
   white-space: nowrap;
 }
 
@@ -262,6 +265,7 @@ button {
 	position: relative;
 	z-index: 1000;
 	margin-bottom: 3vw;
+	height: 60vw;
 }
 .header-inner {
 	padding-top: 46px;
@@ -382,6 +386,8 @@ button {
 	padding: 24px 0;
 	background: #E1211D;
 	height:auto;
+	position: relative;
+	z-index: 999;
 }
 /*헬로 이미지 */
 .hello-section img {
@@ -426,6 +432,8 @@ right: 20px;
 	color: #fff;
 	margin-top: 4vw;
 	margin-bottom: 7.4vh;
+	white-space: normal;
+  	word-break: keep-all; 
 }
 .hello-section h2,
 .hello-section h3,
@@ -443,8 +451,9 @@ right: 20px;
 /* 어바웃미 파트 */
 .about-me {
 	width: 100%;
-	height: 100vh;
-	padding: 14vh 0 10vw 0;
+	height: auto;
+	padding: 10vw 0 10vw 0;
+	margin-bottom: 15vw;
 }
 .section-h2 {
 	text-align: center;
@@ -510,7 +519,7 @@ right: 20px;
 }
 .about-me .spec-list {
 	width: 65vw;
-	height: 31.7vh;
+	height: auto;
 	display: flex;
   	flex-direction: row;
   	gap: 6vw;
@@ -521,13 +530,14 @@ right: 20px;
 	justify-content: center;
 	align-items: flex-start;
 	padding-top: 4.6vh;
+	padding-bottom: 4.6vh;
 	border: 1.4px solid black;
 	position: relative;
 }
 .hover-me {
 	position: absolute;
 	left: -5vw;
-	top: 42vw;
+	top: 44vw;
 	z-index: 9999;
 }
 .hover-me img {
@@ -537,14 +547,17 @@ right: 20px;
 }
 .about-me .spec-list .spec-item .spec-title {
 	font-family: 'Pretendard';
-	font-size: 1.625rem;
+	font-size: 1.7vw;
 	font-weight: 600;
 	margin-bottom: 3vh;
+}
+.spec-item-br {
+	display: none;
 }
 .about-me .spec-list .spec-item ul {
 	font-family: 'Pretendard';
 	font-weight: 500;
-	font-size: 1.125rem;
+	font-size: 1.1vw;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -609,7 +622,7 @@ right: 20px;
 .work-experience {
 	position: relative;
 	width: 100%;
-	height: 80vh;
+	height: 50vw;
 	/* background: #FFCAE4; */
 	background: linear-gradient(270deg, #ff82d9, #E1211D, #d400ff);
   	background-size: 400% 400%;
@@ -1815,38 +1828,162 @@ footer .footer-background {
 	border-radius: 50%;
 	animation: loader-ani 1s infinite linear;
 }
-
-
-
-/* @media (min-width: 960px) {
-	.width-setter {
-		width: 920px;
-		margin: 0 auto;
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* 태블릿 */
+  html {
+	font-size: 14px;
+  }
+  .spec-item {
+	margin-left: 5vw;
+  }
+  .about-me .spec-list {
+		display: flex;
+		flex-direction: column;
 	}
-	.site-title {
-		font-size: 5.8rem;
-		white-space: nowrap;
+	.about-me .spec-list .spec-item .spec-title {
+	font-size: 1.625rem;
 	}
-	.panel-side img {
-		opacity: 0.5;
+.about-me .spec-list .spec-item ul {
+	font-size: 1.125rem;
 	}
-	.paragraph {
-		column-count: 3;
-		column-gap: 3em;
-	}
-	.project-title {
-		font-size: 5rem;
-	}
-	.project-content {
-		width: 60%;
-	}
+	.hover-me {
+	display: none;
+}
+.hover-me-p {
+	display: none;
+}
 }
 
-@media (min-width: 1240px) {
-	.width-setter {
-		width: 1200px;
+
+@media (max-width: 767px) {
+  /* 모바일 */
+    html {
+	font-size: 14px;
+ 	 }
+	.nav{
+		display: none;
 	}
-	.site-title {
-		font-size: 7.6rem;
+	.header {
+		margin-bottom: 6vw;
 	}
-} */
+
+	.hello-section h3 {
+	   font-size: 18px;
+	}
+	.hello-section .paragraph {
+		font-size: 14px;
+		
+	}
+	.hello-section .paragraph br {
+		display: none;
+	}
+	.about-me {
+	  display: flex;
+	  flex-direction: column;
+	}
+	.about-me .spec-list {
+		display: flex;
+		flex-direction: column;
+	}
+	.about-me .about-img {
+  		position: absolute;
+		display: block;
+ 	 	width: 50vw;
+ 	 	display: block;
+ 	 	margin: 0 auto;
+  		transform: none;
+		left: auto;
+		right: auto;
+		
+	
+	}
+	  .img-box {
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px; 
+	height: 50vw;
+  	}
+	.about-me .skills-list {
+		left: 10vw;
+	}
+	.about-me .skills-list .skills-wrap {
+		width: 80vw;
+	}
+	.about-me .skills-list ul {
+		gap: 12vw;
+	}
+	.about-me .skills-list .skills-wrap .skills-items li img {
+		width: 13vw;
+	}
+
+	.img-box:hover .img-default {
+  	transform: rotate(0deg);
+	}
+	.img-box:hover .img-hover {
+    opacity: 0;
+ 	 }
+
+  .img-box:hover .img-default {
+    transform: rotate(0deg);
+ 	}
+
+  .img-box:hover .hover-img-meet img {
+    display: none;
+ 	 }
+
+	.img-hover {
+		display: none;
+	}
+	.hover-img-meet {
+		display: none;
+	}
+	.about-me .spec-list {
+		min-width: 86vw;
+		 margin: 0 auto;
+		
+	}
+	.spec-item-br {
+		display: inline;
+	}
+
+	 .spec-item {
+	margin-left: 5vw;
+  	}
+	.about-me .spec-list .spec-item .spec-title {
+	font-size: 1.625rem;
+	}
+	.about-me .spec-list .spec-item ul {
+	font-size: 1.125rem;
+	}
+	.hover-me {
+		display: none;
+	}
+	.hover-me-p {
+	display: none;
+}
+.project-desc {
+	font-size: 4.5vw;
+}
+.modal-btn {
+	flex-direction: column;
+	height: auto;
+	padding: 6vw 0;
+	margin-bottom: 30vw;
+}
+.modal-btn .modal-btn-list {
+	margin-bottom: 10vw;
+}
+.modal-btn .modal-btn-list a img {
+	width: 55vw;
+	filter: none;
+}
+.overlay {
+	height: 7vw;
+	font-size: 10vw;
+}
+.modal-btn .modal-btn-list .card .overlay span{
+	font-size: 5vw;
+}
+}
