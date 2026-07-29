@@ -57,6 +57,34 @@
   						</div>
 					</div>
 
+					<div class="modal" id="modal-1">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/p1.jpg">
+    						<img src="assets/images/p2.jpg">
+    						<img src="assets/images/p3.jpg">
+    						<img src="assets/images/p4.jpg">
+    						<img src="assets/images/p5.jpg">
+    						<img src="assets/images/p6.gif">
+    						<img src="assets/images/p7.jpg">
+    						<img src="assets/images/p8.jpg">
+    						<img src="assets/images/p9.gif">
+    						<img src="assets/images/p10.gif">
+    						<img src="assets/images/p11.jpg">
+    						<img src="assets/images/p12.jpg">
+    						<img src="assets/images/p13.jpg">
+    						<img src="assets/images/p14.jpg">
+    						<img src="assets/images/p15.jpg">
+    						<img src="assets/images/p16.jpg">
+    						<img src="assets/images/p18.jpg">
+						</img>
+  						</div>
+					</div>
+
 					<div class="modal" id="modal2">
   						<div class="modal-overlay"></div>
 
@@ -109,6 +137,25 @@
 
    					 	<!-- 상세페이지 -->
     						<img src="assets/images/조르지오페리.png">
+						</img>
+  						</div>
+					</div>
+					<div class="modal" id="modal5-1">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/1.jpg">
+    						<img src="assets/images/2.jpg">
+    						<img src="assets/images/3.jpg">
+    						<img src="assets/images/4.jpg">
+    						<img src="assets/images/5.jpg">
+    						<img src="assets/images/6.jpg">
+    						<img src="assets/images/제안서gif_출시.gif">
+    						<img src="assets/images/8.jpg">
+    						<img src="assets/images/9.jpg">
 						</img>
   						</div>
 					</div>
@@ -321,7 +368,11 @@
 						</li>
 						<li>
 							<span>휘트니스 엠에이치 마케팅/디자인</span>
-							<span>2020.02~2022.03</span>
+							<span>2020.02~2022.12</span>
+						</li>
+						<li>
+							<span>데일리블룸 디자인</span>
+							<span>2026.04~</span>
 						</li>
 					</ul>
 				</div>
@@ -456,6 +507,15 @@
 								</a>
 							</li>
 							<li class="modal-btn-list">
+								<a class="card" data-modal="modal-1">
+  									<img src="assets/images/PantryStorage.jpg" alt="프로젝트 이미지">
+
+  									<div class="overlay">
+    									<span>Pantry Storage</span>
+ 									</div>
+								</a>
+							</li>
+							<li class="modal-btn-list">
 								<a class="card" data-modal="modal2">
   									<img src="assets/images/bebe.png" alt="프로젝트 이미지">
 
@@ -543,6 +603,19 @@
 								</a>
 							</li>
 						 -->
+							<li class="branding-item">
+								<a class="branding-itam-btn" data-modal="modal5-1">
+									<img class="branding-decoration" src="assets/images/세로-더진한.svg" alt="꾸밈요소" aria-hidden="true">
+										<div class="branding-btn-p">
+											<p class="branding-chapter">Chapter 04</p>
+											<p class="branding-title">Product Proposal</p>
+											<p class="branding-text">Pantry Storage Proposal</p>
+												<p class="branding-text2">SNS 공동구매를 위한<br>수납함 상품 제안서</p>
+												<p class="In-house">In-house Project</p>
+										</div>
+									<img class="Thumbnail" src="assets/images/04.jpg" alt="명함 버튼 사진">
+								</a>
+							</li>
 						 </ul>
 					</div>
 				</li>
@@ -753,449 +826,472 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =========================
-  // 🎯 공통 변수
-  // =========================
+  // ==================================================
+  // 1. 공통 요소
+  // ==================================================
   const modals = document.querySelectorAll(".modal");
 
-  let isPaused = false;
-  let isDragging = false;
 
-  // =========================
-  // 🎯 마케팅 슬라이드
-  // =========================
-  const track = document.querySelector('.Marketing-list');
-
-  track.innerHTML += track.innerHTML;
-
-  let position = track.scrollWidth / 2;
-  let speed = 0.4;
-  let animationId;
-
-  function animate() {
-	cancelAnimationFrame(animationId);
-    if (!isPaused && !isDragging) {
-      position += speed;
-
-      const half = track.scrollWidth / 2;
-      if (position >= half) {
-        position -= half;
-      }
-    }
-
-    track.style.transform = `translateX(-${position}px)`;
-    animationId = requestAnimationFrame(animate);
-  }
-  animate();
-
-  // 드래그
-  let startX = 0;
-  let startPosition = 0;
-
-  track.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    isPaused = true;
-
-    startX = e.clientX;
-    startPosition = position;
-
-    track.style.cursor = 'grabbing';
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-
-    const dx = e.clientX - startX;
-    position = startPosition - dx;
-
-    const half = track.scrollWidth / 2;
-
-    if (position >= half) {
-      position -= half;
-      startPosition = position;
-      startX = e.clientX;
-    }
-
-    if (position < 0) {
-      position += half;
-      startPosition = position;
-      startX = e.clientX;
-    }
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-
-    isDragging = false;
-    isPaused = false;
-	animate();
-    track.style.cursor = 'grab';
-  });
-
-  track.addEventListener('mouseenter', () => isPaused = true);
-  track.addEventListener('mouseleave', () => {
-    if (!isDragging) isPaused = false;
-  });
-
-  track.style.cursor = 'grab';
-
-  // =========================
-  // 🎯 모든 모달 버튼 (통합)
-  // =========================
-  const allButtons = document.querySelectorAll(
+  // ==================================================
+  // 2. 모달 열기
+  // ==================================================
+  const modalButtons = document.querySelectorAll(
     ".card, .branding-itam-btn, .marketing-item button, .Creative-btn"
   );
 
-  allButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
+  modalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      let targetId = button.dataset.modal;
 
-      // 모든 모달 닫기
-      modals.forEach(m => m.style.display = "none");
+      if (!targetId) return;
 
-      // 모달 id 찾기
-      let target = btn.dataset.modal;
-
-      // marketing은 숫자라서 modal 붙여줌
-      if (!target.startsWith("modal")) {
-        target = "modal" + target;
+      // 마케팅 버튼은 data-modal="6" 형식이므로 modal을 붙임
+      if (!targetId.startsWith("modal")) {
+        targetId = `modal${targetId}`;
       }
 
-      const targetModal = document.getElementById(target);
+      const targetModal = document.getElementById(targetId);
 
-      if (targetModal) {
-        targetModal.style.display = "flex";
-		document.body.classList.add("no-scroll");
+      if (!targetModal) return;
 
-        // ⭐ 슬라이드 멈춤
-        isPaused = true;
-		cancelAnimationFrame(animationId);
+      // 혹시 열려 있는 모달이 있다면 먼저 닫기
+      modals.forEach((modal) => {
+        modal.style.display = "none";
+      });
 
-        setTimeout(() => {
-          targetModal.scrollTop = 0;
+      targetModal.style.display = "flex";
+      document.body.classList.add("no-scroll");
 
-          const content = targetModal.querySelector(".modal-content");
-          if (content) content.scrollTop = 0;
-        }, 10);
-      }
-    });
-  });
-
-  // =========================
-  // 🎯 모달 닫기
-  // =========================
-  modals.forEach(modal => {
-
-    const closeBtn = modal.querySelector(".modal-close");
-    const overlay = modal.querySelector(".modal-overlay");
-
-    function closeModal() {
-      modal.style.display = "none";
-	  document.body.classList.remove("no-scroll");
-
-      // ⭐ 다시 슬라이드 시작
-      isPaused = false;
-	  animate();
-    }
-
-    if (closeBtn) closeBtn.addEventListener("click", closeModal);
-    if (overlay) overlay.addEventListener("click", closeModal);
-  });
-
-});
-// ---------------------
-const helloSection = document.querySelector('.hello-section');
-const helloItems = helloSection.querySelectorAll('h2, h3, .paragraph');
-
-let triggered = false;
-
-window.addEventListener('scroll', () => {
-  const sectionTop = helloSection.getBoundingClientRect().top;
-
-  if (sectionTop < window.innerHeight * 0.8 && !triggered) {
-    triggered = true;
-
-    helloItems.forEach((el, index) => {
+      // 모달을 열 때 항상 맨 위로
       setTimeout(() => {
-        el.classList.add('show');
-      }, index * 600); // 순서대로 딜레이
-    });
-  }
-});
-// -------------------------------
-document.addEventListener("DOMContentLoaded", () => {
+        targetModal.scrollTop = 0;
 
-  // =========================
-  // 🎯 기존 코드 그대로 유지
-  // =========================
+        const modalContent =
+          targetModal.querySelector(".modal-content");
 
-  const modals = document.querySelectorAll(".modal");
-
-  let isPaused = false;
-  let isDragging = false;
-
-  const track = document.querySelector('.Marketing-list');
-
-  track.innerHTML += track.innerHTML;
-
-  let position = track.scrollWidth / 2;
-  let speed = 0.3;
-  let animationId;
-
-  function animate() {
-    cancelAnimationFrame(animationId);
-    if (!isPaused && !isDragging) {
-      position += speed;
-
-      const half = track.scrollWidth / 2;
-      if (position >= half) {
-        position -= half;
-      }
-    }
-
-    track.style.transform = `translateX(-${position}px)`;
-    animationId = requestAnimationFrame(animate);
-  }
-  animate();
-
-  let startX = 0;
-  let startPosition = 0;
-
-  track.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    isPaused = true;
-    startX = e.clientX;
-    startPosition = position;
-    track.style.cursor = 'grabbing';
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-
-    const dx = e.clientX - startX;
-    position = startPosition - dx;
-
-    const half = track.scrollWidth / 2;
-
-    if (position >= half) {
-      position -= half;
-      startPosition = position;
-      startX = e.clientX;
-    }
-
-    if (position < 0) {
-      position += half;
-      startPosition = position;
-      startX = e.clientX;
-    }
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    isPaused = false;
-    animate();
-    track.style.cursor = 'grab';
-  });
-
-  track.addEventListener('mouseenter', () => isPaused = true);
-  track.addEventListener('mouseleave', () => {
-    if (!isDragging) isPaused = false;
-  });
-
-  track.style.cursor = 'grab';
-
-  const allButtons = document.querySelectorAll(
-    ".card, .branding-itam-btn, .marketing-item button"
-  );
-
-  allButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-      modals.forEach(m => m.style.display = "none");
-
-      let target = btn.dataset.modal;
-      if (!target.startsWith("modal")) {
-        target = "modal" + target;
-      }
-
-      const targetModal = document.getElementById(target);
-
-      if (targetModal) {
-        targetModal.style.display = "flex";
-		document.body.classList.add("no-scroll");
-
-        isPaused = true;
-        cancelAnimationFrame(animationId);
-
-        setTimeout(() => {
-          targetModal.scrollTop = 0;
-          const content = targetModal.querySelector(".modal-content");
-          if (content) content.scrollTop = 0;
-        }, 10);
-      }
+        if (modalContent) {
+          modalContent.scrollTop = 0;
+        }
+      }, 10);
     });
   });
 
-  modals.forEach(modal => {
 
-    const closeBtn = modal.querySelector(".modal-close");
-    const overlay = modal.querySelector(".modal-overlay");
+  // ==================================================
+  // 3. 모달 닫기
+  // ==================================================
+  function closeModal(modal) {
+    modal.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  }
 
-    function closeModal() {
-      modal.style.display = "none";
-      isPaused = false;
-      animate();
-    }
+  modals.forEach((modal) => {
+    const closeButton =
+      modal.querySelector(".modal-close");
 
-    if (closeBtn) closeBtn.addEventListener("click", closeModal);
-    if (overlay) overlay.addEventListener("click", closeModal);
-  });
+    const overlay =
+      modal.querySelector(".modal-overlay");
 
-  // =========================
-  // 🔥 여기부터 추가 (스크롤 효과 통합)
-  // =========================
-
-  const helloSection = document.querySelector('.hello-section');
-  const helloItems = helloSection.querySelectorAll('h2, h3, .paragraph');
-
-  const specList = document.querySelector('.spec-list');
-  const subItems = document.querySelectorAll('.img-box, .hover-me, .hover-me-p');
-
-  let helloTriggered = false;
-  let aboutTriggered = false;
-
-  window.addEventListener('scroll', () => {
-
-    // 🔹 hello section
-    const helloTop = helloSection.getBoundingClientRect().top;
-
-    if (helloTop < window.innerHeight * 0.8 && !helloTriggered) {
-      helloTriggered = true;
-
-      helloItems.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add('show');
-        }, index * 600);
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        closeModal(modal);
       });
     }
 
-    // 🔹 about (spec-list 메인)
-const specList = document.querySelector('.spec-list');
-const imgBox = document.querySelector('.img-box');
-const hoverText = document.querySelector('.hover-me-p');
-const hoverHand = document.querySelector('.hover-me');
-
-let aboutTriggered = false;
-
-window.addEventListener('scroll', () => {
-  const specTop = specList.getBoundingClientRect().top;
-
-  if (specTop < window.innerHeight * 0.7 && !aboutTriggered) {
-    aboutTriggered = true;
-
-     // 🔥 1️⃣ spec-list 먼저 (주인공)
-  specList.classList.add('show');
-
-  // 2️⃣ 캐릭터
-  setTimeout(() => {
-    imgBox.classList.add('show');
-  }, 600);
-
-  // 3️⃣ hover 안내
-  setTimeout(() => {
-    hoverText.classList.add('show');
-    hoverHand.classList.add('show');
-  }, 1200);
-}
-});
-
+    if (overlay) {
+      overlay.addEventListener("click", () => {
+        closeModal(modal);
+      });
+    }
   });
 
-});
-// ---------------------------
-const workSection = document.querySelector('.work-experience');
+  // ESC 키로 모달 닫기
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
 
-let workTriggered = false;
+    modals.forEach((modal) => {
+      if (modal.style.display === "flex") {
+        closeModal(modal);
+      }
+    });
+  });
 
-window.addEventListener('scroll', () => {
-  const top = workSection.getBoundingClientRect().top;
 
-  if (top < window.innerHeight * 0.4 && !workTriggered) {
-    workTriggered = true;
-    workSection.classList.add('show');
-  }
-});
-// ------------------------------------
-const projectSections = document.querySelectorAll('.project-item');
+  // ==================================================
+// 4. 마케팅 버튼 슬라이드
+// HTML 구조는 그대로 유지
+// ==================================================
+const marketingSection =
+  document.querySelector(".Marketing");
 
-projectSections.forEach(section => {
+const marketingContent =
+  marketingSection?.querySelector(".project-content");
 
-  const desc = section.querySelector('.project-desc');
+const marketingTrack =
+  marketingSection?.querySelector(".track");
 
-  // 👉 여러 타입 다 잡기
-  const cards = section.querySelectorAll(
-    '.modal-btn-list, .branding-item, .marketing-item, .creative-item'
+const marketingList =
+  marketingSection?.querySelector(".Marketing-list");
+
+const marketingItems =
+  marketingSection?.querySelectorAll(".marketing-item");
+
+if (
+  marketingSection &&
+  marketingContent &&
+  marketingTrack &&
+  marketingList &&
+  marketingItems.length > 0
+) {
+  // 같은 버튼이 중복 생성되는 것 방지
+  const oldButtons =
+    marketingContent.querySelectorAll(".marketing-arrow");
+
+  oldButtons.forEach((button) => {
+    button.remove();
+  });
+
+  // 이전 버튼
+  const prevButton =
+    document.createElement("button");
+
+  prevButton.type = "button";
+  prevButton.className =
+    "marketing-arrow marketing-prev";
+
+  prevButton.setAttribute(
+    "aria-label",
+    "이전 프로젝트"
   );
 
-  let descTriggered = false;
-  let cardsTriggered = false;
+  prevButton.innerHTML = "‹";
 
-  window.addEventListener('scroll', () => {
+  // 다음 버튼
+  const nextButton =
+    document.createElement("button");
 
-    if (!desc) return; // 안전장치
+  nextButton.type = "button";
+  nextButton.className =
+    "marketing-arrow marketing-next";
 
-    const descTop = desc.getBoundingClientRect().top;
+  nextButton.setAttribute(
+    "aria-label",
+    "다음 프로젝트"
+  );
 
-    // 설명
-    if (descTop < window.innerHeight * 0.6 && !descTriggered) {
-      descTriggered = true;
-      desc.classList.add('show');
-    }
+  nextButton.innerHTML = "›";
 
-    // 카드 (있을 때만 실행)
-    if (cards.length > 0) {
-      const firstTop = cards[0].getBoundingClientRect().top;
+  // track 안이 아니라 project-content에 삽입
+  marketingContent.appendChild(prevButton);
+  marketingContent.appendChild(nextButton);
 
-      if (firstTop < window.innerHeight * 0.4 && !cardsTriggered) {
-        cardsTriggered = true;
+  function getMoveDistance() {
+    const firstItem = marketingItems[0];
 
-        cards.forEach((card, index) => {
-          setTimeout(() => {
-            card.classList.add('show');
-          }, index * 400);
-        });
-      }
-    }
+    if (!firstItem) return 0;
 
+    const listStyle =
+      window.getComputedStyle(marketingList);
+
+    const gap =
+      parseFloat(listStyle.gap) || 0;
+
+    return (
+      firstItem.getBoundingClientRect().width +
+      gap
+    );
+  }
+
+  function updateArrowState() {
+    const maxScrollLeft =
+      marketingTrack.scrollWidth -
+      marketingTrack.clientWidth;
+
+    prevButton.disabled =
+      marketingTrack.scrollLeft <= 1;
+
+    nextButton.disabled =
+      marketingTrack.scrollLeft >=
+      maxScrollLeft - 1;
+  }
+
+  nextButton.addEventListener("click", () => {
+    marketingTrack.scrollBy({
+      left: getMoveDistance(),
+      behavior: "smooth"
+    });
   });
 
-});
+  prevButton.addEventListener("click", () => {
+    marketingTrack.scrollBy({
+      left: -getMoveDistance(),
+      behavior: "smooth"
+    });
+  });
 
-// ------------------
+  marketingTrack.addEventListener(
+    "scroll",
+    updateArrowState
+  );
 
-// =========================
-// 🎯 Branding 리스트 순차 등장
-// =========================
-const brandingSection = document.querySelector('.branding');
-const brandingItems = document.querySelectorAll('.branding-item');
+  window.addEventListener(
+    "resize",
+    updateArrowState
+  );
 
-let brandingTriggered = false;
+  window.addEventListener("load", () => {
+    updateArrowState();
+  });
 
-window.addEventListener('scroll', () => {
-  if (!brandingSection) return;
+  updateArrowState();
+}
 
-  const top = brandingSection.getBoundingClientRect().top;
 
-  // 섹션이 화면에 들어오면 시작
-  if (top < window.innerHeight * 0.15 && !brandingTriggered) {
-    brandingTriggered = true;
+  // ==================================================
+  // 5. Hello 영역 순차 등장
+  // ==================================================
+  const helloSection =
+    document.querySelector(".hello-section");
 
-    brandingItems.forEach((item, index) => {
+  const helloItems =
+    helloSection
+      ? helloSection.querySelectorAll(
+          "h2, h3, .paragraph"
+        )
+      : [];
+
+  let helloTriggered = false;
+
+  function showHelloSection() {
+    if (!helloSection || helloTriggered) return;
+
+    const helloTop =
+      helloSection.getBoundingClientRect().top;
+
+    if (helloTop < window.innerHeight * 0.8) {
+      helloTriggered = true;
+
+      helloItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, index * 600);
+      });
+    }
+  }
+
+
+  // ==================================================
+  // 6. About Me 영역 순차 등장
+  // ==================================================
+  const specList =
+    document.querySelector(".spec-list");
+
+  const imgBox =
+    document.querySelector(".img-box");
+
+  const hoverText =
+    document.querySelector(".hover-me-p");
+
+  const hoverHand =
+    document.querySelector(".hover-me");
+
+  let aboutTriggered = false;
+
+  function showAboutSection() {
+    if (!specList || aboutTriggered) return;
+
+    const specTop =
+      specList.getBoundingClientRect().top;
+
+    if (specTop < window.innerHeight * 0.7) {
+      aboutTriggered = true;
+
+      // 1. 리스트
+      specList.classList.add("show");
+
+      // 2. 캐릭터
+      if (imgBox) {
+        setTimeout(() => {
+          imgBox.classList.add("show");
+        }, 600);
+      }
+
+      // 3. Hover 안내
       setTimeout(() => {
-        item.classList.add('show');
-      }, index * 1000); // 하나씩 순차 등장
+        if (hoverText) {
+          hoverText.classList.add("show");
+        }
+
+        if (hoverHand) {
+          hoverHand.classList.add("show");
+        }
+      }, 1200);
+    }
+  }
+
+
+  // ==================================================
+  // 7. Work Experience 영역 등장
+  // ==================================================
+  const workSection =
+    document.querySelector(".work-experience");
+
+  let workTriggered = false;
+
+  function showWorkSection() {
+    if (!workSection || workTriggered) return;
+
+    const workTop =
+      workSection.getBoundingClientRect().top;
+
+    if (workTop < window.innerHeight * 0.4) {
+      workTriggered = true;
+      workSection.classList.add("show");
+    }
+  }
+
+
+  // ==================================================
+  // 8. 프로젝트 설명 및 카드 순차 등장
+  // ==================================================
+  const projectSections =
+    document.querySelectorAll(".project-item");
+
+  const projectStates = [];
+
+  projectSections.forEach((section) => {
+    const desc =
+      section.querySelector(".project-desc");
+
+    const cards =
+      section.querySelectorAll(
+        ".modal-btn-list, " +
+        ".marketing-item, " +
+        ".creative-item"
+      );
+
+    projectStates.push({
+      section,
+      desc,
+      cards,
+      descTriggered: false,
+      cardsTriggered: false
+    });
+  });
+
+
+  function showProjectSections() {
+    projectStates.forEach((state) => {
+      const {
+        desc,
+        cards
+      } = state;
+
+
+      // 설명 등장
+      if (desc && !state.descTriggered) {
+        const descTop =
+          desc.getBoundingClientRect().top;
+
+        if (
+          descTop <
+          window.innerHeight * 0.6
+        ) {
+          state.descTriggered = true;
+          desc.classList.add("show");
+        }
+      }
+
+
+      // 카드 순차 등장
+      if (
+        cards.length > 0 &&
+        !state.cardsTriggered
+      ) {
+        const firstCardTop =
+          cards[0]
+            .getBoundingClientRect()
+            .top;
+
+        if (
+          firstCardTop <
+          window.innerHeight * 0.4
+        ) {
+          state.cardsTriggered = true;
+
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add("show");
+            }, index * 400);
+          });
+        }
+      }
     });
   }
+
+
+  // ==================================================
+  // 9. Branding 리스트 순차 등장
+  // 기존 효과 별도 유지
+  // ==================================================
+  const brandingSection =
+    document.querySelector(".branding");
+
+  const brandingItems =
+    document.querySelectorAll(".branding-item");
+
+  let brandingTriggered = false;
+
+  function showBrandingSection() {
+    if (
+      !brandingSection ||
+      brandingTriggered
+    ) {
+      return;
+    }
+
+    const brandingTop =
+      brandingSection
+        .getBoundingClientRect()
+        .top;
+
+    if (
+      brandingTop <
+      window.innerHeight * 0.15
+    ) {
+      brandingTriggered = true;
+
+      brandingItems.forEach(
+        (item, index) => {
+          setTimeout(() => {
+            item.classList.add("show");
+          }, index * 1000);
+        }
+      );
+    }
+  }
+
+
+  // ==================================================
+  // 10. 스크롤 이벤트 통합
+  // ==================================================
+  function handleScrollEffects() {
+    showHelloSection();
+    showAboutSection();
+    showWorkSection();
+    showProjectSections();
+    showBrandingSection();
+  }
+
+  window.addEventListener(
+    "scroll",
+    handleScrollEffects,
+    { passive: true }
+  );
+
+  // 새로고침했을 때 이미 해당 위치라면 바로 실행
+  handleScrollEffects();
+
 });
 
 </script>

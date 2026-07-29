@@ -874,9 +874,10 @@ right: 20px;
 	 width: calc(100% + 6vw);
 	height: 33vw;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	background: #f6bcba;
 	padding: 0 7vw;
+	gap: 2vw;
 	margin-left: -3vw;
     margin-right: -3vw;
 	align-items: center;
@@ -1021,7 +1022,6 @@ right: 20px;
 }
 /* ---------------------------------------------- */
 /* 프로젝트 2 */
-
 .branding {
 	/* background: #fff; */
 	padding-top: 5vw;
@@ -1135,54 +1135,108 @@ right: 20px;
 }
 
 /* --------------------------------------------------- */
-/* 프로젝트3 영역 */
-/* .Marketing {
-	padding-top: 5vw;
-} */
-.Marketing-list {
-	width: 100%;
-	height: 53vh;
-	position: relative;
-	display: flex;
-	gap: 3vw;
-	align-items: center;
-	/* margin-top: 2vw; */
-	margin-bottom: 4vw;
+/* 프로젝트3 영역 - Editorial & Marketing 슬라이드 */
+
+.Marketing .project-content {
+  position: relative;
 }
-.track {
+
+.Marketing .track {
   width: 100%;
-  overflow: hidden; /* 🔥 여기가 핵심 */
+  overflow-x: hidden;
+  overflow-y: visible;
+  scroll-behavior: smooth;
 }
-.Marketing-list .marketing-item {
-	flex: 0 0 25vw;
-	display: block;
-	/* overflow: hidden; */
+
+.Marketing .Marketing-list {
+  width: max-content;
+  height: 53vh;
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  margin-bottom: 4vw;
+  padding: 0 5vw;
+  transform: none;
+  transition: none;
 }
-.marketing-item button {
+
+.Marketing .marketing-item {
+  flex: 0 0 26vw;
+  display: block
+}
+
+.Marketing .marketing-item button {
   all: unset;
   display: block;
   width: 100%;
+  cursor: pointer;
 }
-.Marketing-list .marketing-item img {
-  width: 17vw;
-  height:17vw;
+
+.Marketing .marketing-item img {
+  display: block;
+  width: 19vw;
+  height: 19vw;
+  margin: 0 auto;
   object-fit: cover;
   border-radius: 1.2vw;
-  transition: border-radius 0.4s ease;
-    user-select: none;
+  transition: border-radius 0.4s ease, transform 0.4s ease;
+  user-select: none;
   -webkit-user-drag: none;
 }
-.marketing-item button:hover img {
+
+.Marketing .marketing-item button:hover img {
   border-radius: 50%;
   transform: scale(1.08);
 }
-.marketing-item p {
-	font-family: 'Pretendard';
-	font-size: 18px;
-	font-weight: 500;
-	width: 16.2vw;
-	text-align: center;
-	margin-top: 2vw;
+
+.Marketing .marketing-item p {
+  width: 100%;
+  margin-top: 2vw;
+  font-family: 'Pretendard';
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.Marketing .marketing-arrow {
+  position: absolute;
+  top: 64%;
+  z-index: 100;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: 1px solid #222;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  font-family: Arial, sans-serif;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.Marketing .marketing-prev {
+  left: 1vw;
+}
+
+.Marketing .marketing-next {
+  right: 1vw;
+}
+
+.Marketing .marketing-arrow:hover {
+  background: #e1211d;
+  color: #fff;
+}
+
+.Marketing .marketing-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
 }
 
 /* ----------------------------------------------- */
@@ -1374,6 +1428,13 @@ right: 20px;
 
 #modal4 .modal-content img {
   width: 100%;
+}
+#modal5-1 .modal-content {
+	width: 90vw;
+}
+#modal5-1 .modal-content img {
+	width: 90%;
+	margin-bottom: 6vh;
 }
 
 /* 3D gallery */
