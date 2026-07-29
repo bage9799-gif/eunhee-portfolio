@@ -545,6 +545,12 @@ right: 20px;
 	transform: rotate(-20deg);
 
 }
+  .bold {
+	font-weight: 700;
+  }
+  .ai li {
+	font-weight: 700;
+  }
 .about-me .spec-list .spec-item .spec-title {
 	font-family: 'Pretendard';
 	font-size: 1.7vw;
@@ -1947,6 +1953,7 @@ footer .footer-background {
   .spec-item {
 	margin-left: 5vw;
   }
+
   .about-me .spec-list {
 		display: flex;
 		flex-direction: column;
