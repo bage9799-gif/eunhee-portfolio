@@ -171,6 +171,28 @@
 						</img>
   						</div>
 					</div>
+					<div class="modal" id="modal6-1">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/브랜드데이_배너1350_.gif">
+						</img>
+  						</div>
+					</div>
+					<div class="modal" id="modal6-2">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/포토리뷰배너.gif">
+						</img>
+  						</div>
+					</div>
 					<div class="modal" id="modal7">
   						<div class="modal-overlay"></div>
 
@@ -184,14 +206,14 @@
 						</img>
   						</div>
 					</div>
-					<div class="modal" id="modal8">
+					<div class="modal" id="modal8-1">
   						<div class="modal-overlay"></div>
 
   						<div class="modal-content">
     						<button class="modal-close">✕</button>
 
    					 	<!-- 상세페이지 -->
-    						<img src="assets/images/포스터ss.jpg">
+    						<img src="assets/images/2026여름휴가공지배너.jpg">
 						</img>
   						</div>
 					</div>
@@ -209,14 +231,15 @@
 					<div class="modal" id="modal10">
   						<div class="modal-overlay"></div>
 
-  						<div class="modal-content">
-    						<button class="modal-close">✕</button>
+  					<div class="modal-content">
+    					<button class="modal-close">✕</button>
 
    					 	<!-- 상세페이지 -->
     						<img src="assets/images/이것저것_페이지_2.jpg">
 						</img>
   						</div>
 					</div>
+					
 					<div class="modal" id="modal11">
   						<div class="modal-overlay"></div>
 
@@ -225,6 +248,17 @@
 
    					 	<!-- 상세페이지 -->
     						<img src="assets/images/이것저것_페이지_3.jpg">
+						</img>
+  						</div>
+					</div>
+					<div class="modal" id="modal12">
+  						<div class="modal-overlay"></div>
+
+  						<div class="modal-content">
+    						<button class="modal-close">✕</button>
+
+   					 	<!-- 상세페이지 -->
+    						<img src="assets/images/이것저것_페이지_4.jpg">
 						</img>
   						</div>
 					</div>
@@ -634,6 +668,10 @@
 						<p class="project-title" id="editorial">
 							<span class="project-name">Editorial & Marketing</span>
 						</p>
+						<div class="pro">	
+							<img class="pro-img1" src="assets/images/BORDERS 000.png" alt="꾸밈요소" aria-hidden="true">
+							<img class="pro-img2" src="assets/images/BORDERS 000.png" alt="꾸밈요소" aria-hidden="true">
+						</div>
 						<span class="project-desc">정보 전달과 시각적 임팩트를 동시에 담은 콘텐츠 디자인.</span>
 						<!-- <button class="project-btn" data-project-index="3">View</button> -->
 						<div class="track">
@@ -645,16 +683,22 @@
 								<p>두바이베이글 카드뉴스</p>
 							</li>
 							<li class="marketing-item">
+								<button data-modal="modal6-1">
+									<img src="assets/images/브랜드데이썸네일.jpg" alt="">
+								</button>
+								<p>브랜드데이 세일 배너</p>
+							</li>
+							<li class="marketing-item">
 								<button data-modal="7">
 									<img src="assets/images/젠틀몬스터3수정.gif" alt="">
 								</button>
 								<p>젠틀 몬스터 배너 (Various Sizes)</p>
 							</li>
 							<li class="marketing-item">
-								<button data-modal="8">
-									<img src="assets/images/포스터ss.jpg" alt="">
+								<button data-modal="modal8-1">
+									<img src="assets/images/여름휴가썸네일.jpg" alt="">
 								</button>
-								<p>여름맞이 세일 배너</p>
+								<p>여름휴가 공지 배너</p>
 							</li>
 							<li class="marketing-item">
 								<button data-modal="9">
@@ -675,12 +719,22 @@
 								<p>신광타올 포스터</p>
 							</li>
 							<li class="marketing-item">
+								<button data-modal="modal6-2">
+									<img src="assets/images/포토리뷰썸네일.jpg" alt="">
+								</button>
+								<p>포토 리뷰 콘테스트 배너</p>
+							</li>
+							<li class="marketing-item">
 								<button data-modal="12">
 									<img src="assets/images/이것저것_페이지_4.jpg" alt="">
 								</button>
 								<p>조르지오페리 포스터</p>
 							</li>
 						 </ul>
+						 
+						</div>
+						<div class="marketing-progress">
+    						<div class="marketing-progress-bar"></div>
 						</div>
 					</div>
 				</li>
@@ -921,132 +975,277 @@ document.addEventListener("DOMContentLoaded", () => {
 // 4. 마케팅 버튼 슬라이드
 // HTML 구조는 그대로 유지
 // ==================================================
+// ==================================================
+// 4. Editorial & Marketing 슬라이드
+// ==================================================
 const marketingSection =
   document.querySelector(".Marketing");
 
-const marketingContent =
-  marketingSection?.querySelector(".project-content");
+if (marketingSection) {
+  const marketingContent =
+    marketingSection.querySelector(".project-content");
 
-const marketingTrack =
-  marketingSection?.querySelector(".track");
+  const marketingTrack =
+    marketingSection.querySelector(".track");
 
-const marketingList =
-  marketingSection?.querySelector(".Marketing-list");
+  const marketingList =
+    marketingSection.querySelector(".Marketing-list");
 
-const marketingItems =
-  marketingSection?.querySelectorAll(".marketing-item");
+  const progressBar =
+    marketingSection.querySelector(
+      ".marketing-progress-bar"
+    );
 
-if (
-  marketingSection &&
-  marketingContent &&
-  marketingTrack &&
-  marketingList &&
-  marketingItems.length > 0
-) {
-  // 같은 버튼이 중복 생성되는 것 방지
-  const oldButtons =
-    marketingContent.querySelectorAll(".marketing-arrow");
+  if (
+    marketingContent &&
+    marketingTrack &&
+    marketingList &&
+    progressBar
+  ) {
+    // 기존에 만들어진 화살표가 있으면 삭제
+    marketingContent
+      .querySelectorAll(".marketing-arrow")
+      .forEach((button) => {
+        button.remove();
+      });
 
-  oldButtons.forEach((button) => {
-    button.remove();
-  });
+    // 이전 버튼 생성
+    const prevButton =
+      document.createElement("button");
 
-  // 이전 버튼
-  const prevButton =
-    document.createElement("button");
+    prevButton.type = "button";
+    prevButton.className =
+      "marketing-arrow marketing-prev";
+    prevButton.setAttribute(
+      "aria-label",
+      "이전 프로젝트"
+    );
+   prevButton.innerHTML = `
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+  <path d="M15 5L8 12L15 19"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>`;
 
-  prevButton.type = "button";
-  prevButton.className =
-    "marketing-arrow marketing-prev";
+    // 다음 버튼 생성
+    const nextButton =
+      document.createElement("button");
 
-  prevButton.setAttribute(
-    "aria-label",
-    "이전 프로젝트"
-  );
+    nextButton.type = "button";
+    nextButton.className =
+      "marketing-arrow marketing-next";
+    nextButton.setAttribute(
+      "aria-label",
+      "다음 프로젝트"
+    );
+  nextButton.innerHTML = `
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+  <path d="M9 5L16 12L9 19"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+</svg>`;
 
-  prevButton.innerHTML = "‹";
+    // 화살표 삽입
+    marketingContent.appendChild(prevButton);
+    marketingContent.appendChild(nextButton);
 
-  // 다음 버튼
-  const nextButton =
-    document.createElement("button");
+    // 현재 존재하는 리스트를 매번 새로 가져옴
+    function getMarketingItems() {
+      return marketingList.querySelectorAll(
+        ".marketing-item"
+      );
+    }
 
-  nextButton.type = "button";
-  nextButton.className =
-    "marketing-arrow marketing-next";
+    // 카드 한 칸 이동 거리 계산
+    function getMoveDistance() {
+      const items = getMarketingItems();
+      const firstItem = items[0];
 
-  nextButton.setAttribute(
-    "aria-label",
-    "다음 프로젝트"
-  );
+      if (!firstItem) return 0;
 
-  nextButton.innerHTML = "›";
+      const listStyle =
+        window.getComputedStyle(marketingList);
 
-  // track 안이 아니라 project-content에 삽입
-  marketingContent.appendChild(prevButton);
-  marketingContent.appendChild(nextButton);
+      const gap =
+        parseFloat(listStyle.columnGap) ||
+        parseFloat(listStyle.gap) ||
+        0;
 
-  function getMoveDistance() {
-    const firstItem = marketingItems[0];
+      return (
+        firstItem.getBoundingClientRect().width +
+        gap
+      );
+    }
 
-    if (!firstItem) return 0;
+    // 게이지 크기와 위치 계산
+    function updateProgress() {
+      const totalWidth =
+        marketingTrack.scrollWidth;
 
-    const listStyle =
-      window.getComputedStyle(marketingList);
+      const visibleWidth =
+        marketingTrack.clientWidth;
 
-    const gap =
-      parseFloat(listStyle.gap) || 0;
+      const maxScroll =
+        totalWidth - visibleWidth;
 
-    return (
-      firstItem.getBoundingClientRect().width +
-      gap
+      // 스크롤할 내용이 없는 경우
+      if (maxScroll <= 0) {
+        progressBar.style.width = "100%";
+        progressBar.style.transform =
+          "translateX(0)";
+        return;
+      }
+
+      // 전체 콘텐츠 중 현재 화면이 차지하는 비율
+      const barWidthPercent =
+        Math.min(
+          100,
+          (visibleWidth / totalWidth) * 100
+        );
+
+      // 현재 스크롤 위치
+      const scrollRatio =
+        marketingTrack.scrollLeft / maxScroll;
+
+      // 게이지가 이동할 수 있는 최대 거리
+      const maxMovePercent =
+        100 - barWidthPercent;
+
+      const movePercent =
+        scrollRatio * maxMovePercent;
+
+      progressBar.style.width =
+        `${barWidthPercent}%`;
+
+      progressBar.style.transform =
+        `translateX(${
+          (movePercent / barWidthPercent) * 100
+        }%)`;
+    }
+
+    // 화살표 활성화 상태
+    function updateArrowState() {
+      const maxScroll =
+        marketingTrack.scrollWidth -
+        marketingTrack.clientWidth;
+
+      prevButton.disabled =
+        marketingTrack.scrollLeft <= 1;
+
+      nextButton.disabled =
+        marketingTrack.scrollLeft >=
+        maxScroll - 1;
+
+      updateProgress();
+    }
+
+    // 다음 버튼
+    nextButton.addEventListener(
+      "click",
+      () => {
+        const moveDistance =
+          getMoveDistance();
+
+        marketingTrack.scrollBy({
+          left: moveDistance,
+          behavior: "smooth"
+        });
+      }
+    );
+
+    // 이전 버튼
+    prevButton.addEventListener(
+      "click",
+      () => {
+        const moveDistance =
+          getMoveDistance();
+
+        marketingTrack.scrollBy({
+          left: -moveDistance,
+          behavior: "smooth"
+        });
+      }
+    );
+
+    // 직접 스크롤할 때
+    marketingTrack.addEventListener(
+      "scroll",
+      updateArrowState,
+      { passive: true }
+    );
+
+    // 화면 크기가 변경될 때
+    window.addEventListener(
+      "resize",
+      () => {
+        requestAnimationFrame(
+          updateArrowState
+        );
+      }
+    );
+
+    // 이미지가 로딩될 때마다 다시 계산
+    function observeImages() {
+      marketingList
+        .querySelectorAll("img")
+        .forEach((img) => {
+          if (img.complete) return;
+
+          img.addEventListener(
+            "load",
+            updateArrowState,
+            { once: true }
+          );
+        });
+    }
+
+    observeImages();
+
+    // 리스트가 추가되거나 삭제되면 자동 반영
+    const mutationObserver =
+      new MutationObserver(() => {
+        observeImages();
+
+        requestAnimationFrame(() => {
+          updateArrowState();
+        });
+      });
+
+    mutationObserver.observe(
+      marketingList,
+      {
+        childList: true,
+        subtree: true
+      }
+    );
+
+    // 리스트와 화면 크기 변화를 감지
+    const resizeObserver =
+      new ResizeObserver(() => {
+        requestAnimationFrame(() => {
+          updateArrowState();
+        });
+      });
+
+    resizeObserver.observe(marketingTrack);
+    resizeObserver.observe(marketingList);
+
+    // 처음 실행
+    requestAnimationFrame(() => {
+      updateArrowState();
+    });
+
+    // 모든 이미지와 파일이 로딩된 뒤 재계산
+    window.addEventListener(
+      "load",
+      updateArrowState
     );
   }
-
-  function updateArrowState() {
-    const maxScrollLeft =
-      marketingTrack.scrollWidth -
-      marketingTrack.clientWidth;
-
-    prevButton.disabled =
-      marketingTrack.scrollLeft <= 1;
-
-    nextButton.disabled =
-      marketingTrack.scrollLeft >=
-      maxScrollLeft - 1;
-  }
-
-  nextButton.addEventListener("click", () => {
-    marketingTrack.scrollBy({
-      left: getMoveDistance(),
-      behavior: "smooth"
-    });
-  });
-
-  prevButton.addEventListener("click", () => {
-    marketingTrack.scrollBy({
-      left: -getMoveDistance(),
-      behavior: "smooth"
-    });
-  });
-
-  marketingTrack.addEventListener(
-    "scroll",
-    updateArrowState
-  );
-
-  window.addEventListener(
-    "resize",
-    updateArrowState
-  );
-
-  window.addEventListener("load", () => {
-    updateArrowState();
-  });
-
-  updateArrowState();
 }
-
-
   // ==================================================
   // 5. Hello 영역 순차 등장
   // ==================================================

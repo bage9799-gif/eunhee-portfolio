@@ -968,15 +968,23 @@ right: 20px;
 #modal6 img {
 	margin: 2vw auto;
 }
+#modal6-1 img {
+	width: 32vw;
+	margin: 0vw auto;
+}
 #modal7 img {
 	margin-bottom: 3vw;
 	width: 30vw;
 	margin: 0 auto;
-	margin-bottom: 3vw;
+	margin-bottom: 1.6vw;
 }
 #modal8 img {
 	width: 32vw;
 	margin: 2vw auto;
+}
+#modal8-1 img {
+	width: 38vw;
+	margin: 0 auto;
 }
 #modal9 img {
 	width: 32vw;
@@ -993,6 +1001,10 @@ right: 20px;
 #modal12 img {
 	width: 32vw;
 	margin: 2vw auto;
+}
+#modal6-2 img {
+	width: 35vw;
+	margin: 0 auto;
 }
 
 
@@ -1140,7 +1152,24 @@ right: 20px;
 .Marketing .project-content {
   position: relative;
 }
-
+.pro {
+	top: 7vh;
+	display: flex;
+	position: absolute;
+	width: 12vw;
+	z-index: 0;
+	opacity: .6;
+}
+.pro-img1 {
+	margin-left: 5vw;
+	transform: rotate(90deg);
+	
+}
+.pro-img2 {
+margin-left: 58vw;
+  transform: scaleX(-1) rotate(90deg);
+  
+}
 .Marketing .track {
   width: 100%;
   overflow-x: hidden;
@@ -1150,7 +1179,7 @@ right: 20px;
 
 .Marketing .Marketing-list {
   width: max-content;
-  height: 53vh;
+  height: 50vh;
   display: flex;
   align-items: center;
   gap: 3vw;
@@ -1229,7 +1258,7 @@ right: 20px;
 }
 
 .Marketing .marketing-arrow:hover {
-  background: #e1211d;
+  background: #E1211D;
   color: #fff;
 }
 
@@ -1238,8 +1267,29 @@ right: 20px;
   cursor: default;
   pointer-events: none;
 }
+.Marketing .marketing-progress {
+  width: 70vw;
+  height: 6px;
+  margin: 10px auto 60px;
 
-/* ----------------------------------------------- */
+  background: #d5c7cd;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.Marketing .marketing-progress-bar {
+  width: 30%;
+  height: 100%;
+
+  background: #e1211d;
+  border-radius: 50px;
+
+  transform: translateX(0);
+
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease;
+}--------------------------------------------- */
 /* 프로젝트 마지막 리스트 */
 .creative-list {
 	position: relative;
