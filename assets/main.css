@@ -108,6 +108,7 @@ button {
   gap: 2.7vw;
   padding: 0 1rem;
   z-index: 1;
+  box-sizing: border-box;
 }
 .background span {
   display: block;
@@ -921,7 +922,7 @@ right: 20px;
 	cursor: pointer;
 }
 .modal-btn .modal-btn-list a img {
-	width: 25vw;
+	width: 20vw;
 	border-radius: 1vw;
 	filter: blur(4px);
 	filter: grayscale(90%);
@@ -938,12 +939,12 @@ right: 20px;
 	border-radius: 1vw;
 }
 .modal-btn .modal-btn-list .card .overlay {
-	width: 90%;
+	width: 80%;
 	position: absolute;
-	padding: 1vw 0;
+	padding: .87vw 0;
 	text-align: center;
 	bottom: 0;
-	margin-bottom: 1rem;
+	margin-bottom: 1.2rem;
 	
 	/* 글레스 효과 */
   border-radius: 130px;
@@ -962,7 +963,7 @@ right: 20px;
     inset 0 -1px 2px rgba(255,255,255,0.1);
 }
 .modal-btn .modal-btn-list .card .overlay span {
-	font-size: 1.7vw;
+	font-size: 1.35vw;
 	font-family: 'Pretendard';
 	color: #fff;
 
@@ -1580,10 +1581,11 @@ margin-left: 58vw;
 .contact-Sticke-2 {
 	position: absolute;
 	opacity: .8;
-	right: -10vw;
+	right: 0vw;
 	z-index: 10;
 	 user-select: none;
   -webkit-user-drag: none;
+  	max-width: 100%;
 }
 .contact-Sticker-3 {
 	position: absolute;
@@ -1846,7 +1848,29 @@ margin-left: 58vw;
   transform: rotate(180deg);
   color: var(--accent-color);
 }
+.modal-btn .card {
+    position: relative;
+	box-sizing: border-box;
+}
 
+.modal-btn .card > .project-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.85);
+    color: #333;
+
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    pointer-events: none;
+}
 /* -------------------------------------- */
 /* footer */
 footer {
@@ -2105,3 +2129,4 @@ footer .footer-background {
 	font-size: 5vw;
 }
 }
+
